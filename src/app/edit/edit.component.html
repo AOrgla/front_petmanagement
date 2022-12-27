@@ -1,0 +1,78 @@
+
+<div class="container">
+  <div class="mt-0">
+    <div class="row">
+      <div class="col-2 mx-auto">
+        <img src="assets/logo_pm_200x200.png" alt="logo.png">
+      </div>
+    </div>
+    <h2 class="text-center"> Add Pet </h2>
+    <div class="row">
+      <div class="col-md-5 mx-auto">
+        <form>
+          <div class="mb-3">
+            <label for="name">Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="name" required="true" placeholder="Name">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="code">Code</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="code" required="true" placeholder="Code">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="types">Type</label>
+            <select class="form-select d-block w-100" id="types" required="true">
+              <option value="">Choose...</option>
+              <option>Cat</option>
+              <option>Dog</option>
+              <option>Horse</option>
+              <option>Rabbit</option>
+              <option>Parrot</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="colors">Fur color</label>
+            <select class="form-select d-block w-100" id="colors" required="true">
+              <option value="">Choose...</option>
+              <option>Black</option>
+              <option>White</option>
+              <option>Brown</option>
+              <option>Yellow</option>
+              <option>Blue</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="countries">Country of origin</label>
+            <select class="form-select d-block w-100" id="countries" required="true">
+              <option value="">Choose...</option>
+              <option>Estonia</option>
+              <option>Latvia</option>
+              <option>Lithuania</option>
+              <option>Finland</option>
+              <option>Sweden</option>
+              <option>Norway</option>
+            </select>
+          </div>
+          <div class="form-group pt-1 col-md-2 mx-auto">
+            <button class="btn btn-primary" type="submit">
+              Save
+            </button>
+          </div>
+          <div class="form-group pt-1 col-md-2 mx-auto">
+            <button class="btn btn-primary" type="submit">
+              Delete
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
