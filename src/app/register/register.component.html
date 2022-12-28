@@ -12,32 +12,35 @@
           <form>
             <div class="form-group required">
               <label for="username"> Enter your Username </label>
-              <input type="text" class="form-control text-lowercase" id="username" required="true" name="username" value="">
+              <input [(ngModel)]="username" type="text" class="form-control" id="username" required="true" name="username" value="">
             </div>
             <div class="form-group required">
-              <label class="d-flex flex-row align-items-center" for="password"> Enter your Password </label>
-              <input type="password" class="form-control" required="true" id="password" name="password" value="">
+              <label class="d-flex flex-row align-items-center"> Enter your Password </label>
+              <input [(ngModel)]="password" type="password" class="form-control" required="true" id="password" name="password" value="">
             </div>
             <div class="form-group required">
-              <label class="d-flex flex-row align-items-center" for="password"> Repeat your Password </label>
-              <input type="password" class="form-control" required="true" id="password2" name="password" value="">
+              <label class="d-flex flex-row align-items-center"> Repeat your Password </label>
+              <input [(ngModel)]="passwordConfirmation" type="password" class="form-control" required="true" id="password2" name="password" value="">
+            </div>
+            <div *ngIf="passwordCheck" class="alert alert-danger" role="alert">
+              Provided passwords do no match!
             </div>
             <div class="form-group required">
-              <label class="d-flex flex-row align-items-center" for="password"> Enter your First Name</label>
-              <input type="text" class="form-control" required="true" id="firstname" name="password" value="">
+              <label class="d-flex flex-row align-items-center"> Enter your First Name</label>
+              <input [(ngModel)]="firstname" type="text" class="form-control" required="true" id="firstname" name="password" value="">
             </div>
             <div class="form-group required">
-              <label class="d-flex flex-row align-items-center" for="password"> Enter your Last Name</label>
-              <input type="text" class="form-control" required="true" id="lastname" name="password" value="">
+              <label class="d-flex flex-row align-items-center"> Enter your Last Name</label>
+              <input [(ngModel)]="lastname" type="text" class="form-control" required="true" id="lastname" name="password" value="">
             </div>
             <div class="form-group required">
-              <label class="d-flex flex-row align-items-center" for="password"> Enter your e-mail </label>
-              <input type="text" class="form-control" required="true" id="email" name="password" value="">
+              <label class="d-flex flex-row align-items-center"> Enter your e-mail </label>
+              <input [(ngModel)]="email" type="text" class="form-control" required="true" id="email" name="password" value="">
             </div>
             <div class="form-group mt-4 mb-4">
             </div>
             <div class="form-group pt-1 col-md-2 mx-auto">
-              <button class="btn btn-primary btn-block" type="submit">Register</button>
+              <button (click)="registerUser()" class="btn btn-primary btn-block" type="submit">Register</button>
             </div>
           </form>
         </div>
