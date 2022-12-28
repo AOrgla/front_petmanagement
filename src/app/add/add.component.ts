@@ -18,15 +18,14 @@ export class AddComponent implements OnInit {
   petType: number = 0;
   petColor: any;
   petCountry: any;
-  inputCheck: boolean = false;
+  inputHasError: boolean = false;
   errorResponse: any = {
     message: "",
     errorCode: ""
   }
   codeExistsError: string = "006"
   codeLengthError: string = "007"
-  codeValueCheck: boolean = false;
-
+  codeHasError: boolean = false;
 
 
   constructor(private http: HttpClient, private _router: Router) {
@@ -58,27 +57,32 @@ export class AddComponent implements OnInit {
   }
 
   addPet() {
-    if (this.petName.length === 0 || this.petType === 0 || this.petCode.length === 0 || this.petCountry === 0
-      || this.petColor === 0) {
-      this.inputCheck = true;
-    } else if (this.petCode.value < 10000) {
-      this.codeValueCheck = true;
-    } else {
-      this.http.post("http://localhost:8080/pet", {
-        userId: sessionStorage.getItem('userId'),
-        petColorId: Number(this.petColor),
-        petTypeId: Number(this.petType),
-        petCountryId: Number(this.petCountry),
-        name: this.petName,
-        code: Number(this.petCode)
-      }).subscribe({
-        next: () => {
-          this._router.navigateByUrl('/list')
-        },
-        error: err => {
-          this.errorResponse = err.error;
-        }
-      });
+    this.inputHasError = false;
+    if (this.petName.length === 0 || !this.petType || this.petCode.length === 0 ||
+      !this.petCountry || !this.petColor) {
+      this.inputHasError = true;
+      return;
     }
+
+    if (this.petCode.length < 5) {
+      this.codeHasError = true;
+      return;
+    }
+
+    this.http.post("http://localhost:8080/pet", {
+      userId: sessionStorage.getItem('userId'),
+      petColorId: Number(this.petColor),
+      petTypeId: Number(this.petType),
+      petCountryId: Number(this.petCountry),
+      name: this.petName,
+      code: Number(this.petCode)
+    }).subscribe({
+      next: () => {
+        this._router.navigateByUrl('/list')
+      },
+      error: err => {
+        this.errorResponse = err.error;
+      }
+    });
   }
 }

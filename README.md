@@ -1,12 +1,13 @@
 # FrontPetmanagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Bootstrap CSS is used for styling.
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server or press the start button. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Introduction
+### Introduction
 
 Pet management system allows users to maintain a list of their pets. User can add, edit and delete pets from the database.
 
@@ -26,4 +27,12 @@ Other users are:
 * password: 123
 
 These users have empty lists.
+
+### Features
+
+* User registration with input field validation
+* User login
+* User can add pets
+* User can edit pets (every property except database Pet code)
+* User can delete pets
 
