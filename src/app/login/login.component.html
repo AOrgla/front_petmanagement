@@ -13,12 +13,14 @@
             <form action="#" method="post" data-parsley-validate="" novalidate="">
               <div class="form-group required">
                 <label for="username"> Enter your Username </label>
-                <input [(ngModel)]="username" type="text" class="form-control" id="username" required="" name="username"
-                       value="">
+                <input [(ngModel)]="username" type="text" class="form-control" id="username" required="true" name="username">
               </div>
               <div class="form-group required">
                 <label class="d-flex flex-row align-items-center" for="password"> Enter your Password </label>
-                <input [(ngModel)]="password" type="password" class="form-control" required="" id="password" name="password" value="">
+                <input [(ngModel)]="password" type="password" class="form-control" required="true" id="password" name="password">
+              </div>
+              <div *ngIf="errorResponse.errorCode" class="alert alert-danger mt-3" role="alert">
+                {{errorResponse.message}}
               </div>
               <div class="form-group mt-4 mb-4">
               </div>

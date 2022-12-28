@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add',
@@ -11,9 +12,24 @@ export class AddComponent implements OnInit {
   colorValues: any;
   countryValues: any;
   selectedType: any;
+  petName: string = "";
+  petCode: any;
+  codeCheck: boolean = false;
+  petType: number = 0;
+  petColor: any;
+  petCountry: any;
+  inputCheck: boolean = false;
+  errorResponse: any = {
+    message: "",
+    errorCode: ""
+  }
+  codeExistsError: string = "006"
+  codeLengthError: string = "007"
+  codeValueCheck: boolean = false;
 
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private _router: Router) {
 
   }
 
@@ -41,4 +57,28 @@ export class AddComponent implements OnInit {
     });
   }
 
+  addPet() {
+    if (this.petName.length === 0 || this.petType === 0 || this.petCode.length === 0 || this.petCountry === 0
+      || this.petColor === 0) {
+      this.inputCheck = true;
+    } else if (this.petCode.value < 10000) {
+      this.codeValueCheck = true;
+    } else {
+      this.http.post("http://localhost:8080/pet", {
+        userId: sessionStorage.getItem('userId'),
+        petColorId: Number(this.petColor),
+        petTypeId: Number(this.petType),
+        petCountryId: Number(this.petCountry),
+        name: this.petName,
+        code: Number(this.petCode)
+      }).subscribe({
+        next: () => {
+          this._router.navigateByUrl('/list')
+        },
+        error: err => {
+          this.errorResponse = err.error;
+        }
+      });
+    }
+  }
 }

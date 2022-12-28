@@ -9,38 +9,64 @@
     <div class="row">
       <div class="col-md-5 mx-auto">
         <div class="card card-body">
-          <form>
+          <div *ngIf="registerCheck">
+            <div class="alert alert-success" role="alert">
+              Registration complete!
+            </div>
+            <div class="form-group pt-1 col-md-4 mx-auto">
+              <a class="btn btn-primary btn-block" type="submit" href="">To login page</a>
+            </div>
+          </div>
+          <form *ngIf="!registerCheck">
             <div class="form-group required">
               <label for="username"> Enter your Username </label>
-              <input [(ngModel)]="username" type="text" class="form-control" id="username" required="true" name="username" value="">
+              <input [(ngModel)]="username" type="text" class="form-control" id="username" required="true"
+                     name="username" value="">
+            </div>
+            <div *ngIf="errorResponse.errorCode === usernameError" class="alert alert-danger mt-3" role="alert">
+              {{errorResponse.message}}
             </div>
             <div class="form-group required">
               <label class="d-flex flex-row align-items-center"> Enter your Password </label>
-              <input [(ngModel)]="password" type="password" class="form-control" required="true" id="password" name="password" value="">
+              <input [(ngModel)]="password" type="password" class="form-control" required="true" id="password"
+                     name="password" value="">
             </div>
             <div class="form-group required">
               <label class="d-flex flex-row align-items-center"> Repeat your Password </label>
-              <input [(ngModel)]="passwordConfirmation" type="password" class="form-control" required="true" id="password2" name="password" value="">
+              <input [(ngModel)]="passwordConfirmation" type="password" class="form-control" required="true"
+                     id="password2" name="password" value="">
             </div>
-            <div *ngIf="passwordCheck" class="alert alert-danger" role="alert">
+            <div *ngIf="passwordCheck" class="alert alert-danger mt-3" role="alert">
               Provided passwords do no match!
             </div>
             <div class="form-group required">
               <label class="d-flex flex-row align-items-center"> Enter your First Name</label>
-              <input [(ngModel)]="firstname" type="text" class="form-control" required="true" id="firstname" name="password" value="">
+              <input [(ngModel)]="firstname" type="text" class="form-control" required="true" id="firstname"
+                     name="password" value="">
             </div>
             <div class="form-group required">
               <label class="d-flex flex-row align-items-center"> Enter your Last Name</label>
-              <input [(ngModel)]="lastname" type="text" class="form-control" required="true" id="lastname" name="password" value="">
+              <input [(ngModel)]="lastname" type="text" class="form-control" required="true" id="lastname"
+                     name="password" value="">
             </div>
             <div class="form-group required">
               <label class="d-flex flex-row align-items-center"> Enter your e-mail </label>
-              <input [(ngModel)]="email" type="text" class="form-control" required="true" id="email" name="password" value="">
+              <input [(ngModel)]="email" type="text" class="form-control" required="true" id="email" name="password"
+                     value="">
             </div>
-            <div class="form-group mt-4 mb-4">
+            <div *ngIf="errorResponse.errorCode === emailError" class="alert alert-danger mt-3" role="alert">
+              {{errorResponse.message}}
             </div>
-            <div class="form-group pt-1 col-md-2 mx-auto">
-              <button (click)="registerUser()" class="btn btn-primary btn-block" type="submit">Register</button>
+            <div *ngIf="emailCheck" class="alert alert-danger mt-3" role="alert">
+              Incorrect email format!
+            </div>
+            <div *ngIf="inputCheck" class="alert alert-danger mt-3" role="alert">
+              Please fill all input fields!
+            </div>
+            <div class="form-group pt-1 mt-3 col-md-2 mx-auto">
+              <button (click)="registerUser(); validateEmail()" class="btn btn-primary btn-block" type="submit">
+                Register
+              </button>
             </div>
           </form>
         </div>

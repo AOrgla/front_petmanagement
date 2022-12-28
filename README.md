@@ -4,24 +4,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server or press the start button. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Introduction
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pet management system allows users to maintain a list of their pets. User can add, edit and delete pets from the database.
 
-## Build
+This application works with Spring Boot back-end application
+[back_petmanagement](https://github.com/AOrgla/back_petmanagement).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To start, use the following credentials:
+* username: John
+* password: 123
 
-## Running unit tests
+John has three pets in his list.
+Other users are:
+* username: Mihkel
+* password: 123
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* username: Janis
+* password: 123
 
-## Running end-to-end tests
+These users have empty lists.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

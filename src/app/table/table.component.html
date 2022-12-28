@@ -4,36 +4,43 @@
   <div class="row">
     <div class="col">
       <div class="position-relative mt-5">
-          <a class="btn btn-outline-dark position-absolute end-0" (click)="logOut()" href="">Logout</a>
+        <a class="btn btn-outline-dark position-absolute end-0" (click)="logOut()" href="">Logout</a>
       </div>
     </div>
   </div>
   <div class="row mt-5">
     <div>
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Code</th>
-        <th scope="col">Type</th>
-        <th scope="col">Fur color</th>
-        <th scope="col">Country</th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let pet of userPets; index as i">
-        <th scope="row">{{i + 1}}</th>
-        <td>{{pet.name}}</td>
-        <td>{{pet.code}}</td>
-        <td>{{pet.type}}</td>
-        <td>{{pet.color}}</td>
-        <td>{{pet.country}}</td>
-        <td><a class="btn btn-primary" href="/edit">Edit</a></td>
-      </tr>
-      </tbody>
-    </table>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Code</th>
+          <th scope="col">Type</th>
+          <th scope="col">Fur color</th>
+          <th scope="col">Country</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pet of userPets">
+          <th scope="row">{{pet.id}}</th>
+          <td>{{pet.name}}</td>
+          <td>{{pet.code}}</td>
+          <td>{{pet.type}}</td>
+          <td>{{pet.color}}</td>
+          <td>{{pet.country}}</td>
+          <td><a class="btn btn-primary" href="/edit" (click)="editPet(pet.code)">Edit</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col">
+      <div class="position-relative mt-5">
+        <a class="btn btn-primary position-absolute end-0" href="/add">Add pet</a>
+      </div>
+    </div>
+  </div>
 </div>
