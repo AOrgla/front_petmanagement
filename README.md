@@ -36,5 +36,6 @@ These users have empty lists.
 * User can add pets - all fields are mandatory!
 * User can edit pets (every property except Pet code)
 * User can delete pets
+* User can sort the pets table 
 * Pet code is unique and it applies globally. 
 
