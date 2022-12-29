@@ -31,6 +31,9 @@ export class EditComponent implements OnInit {
   type: number = 0;
   color: number = 0;
   country: number = 0;
+  inputHasError: boolean = false;
+  hasSaved: boolean = false;
+  hasDeleted: boolean = false;
 
   constructor(private http: HttpClient, private _router: Router) {
   }
@@ -60,11 +63,18 @@ export class EditComponent implements OnInit {
         }
       }
     )
-    this._router.navigateByUrl('/list')
-    sessionStorage.removeItem('singlePetCode')
+    sessionStorage.removeItem('singlePetCode');
+    this.hasDeleted = true;
   }
 
+
   editPet() {
+    this.inputHasError = false;
+    if (this.name.length === 0 || !this.type ||
+      !this.country || !this.color) {
+      this.inputHasError = true;
+      return;
+    }
     this.http.put("http://localhost:8080/pet", {
       petColorId: Number(this.color),
       petTypeId: Number(this.type),
@@ -73,12 +83,11 @@ export class EditComponent implements OnInit {
       code: Number(this.code)
     }).subscribe({
       next: () => {
-        this._router.navigateByUrl('/list')
+        this.hasSaved = true;
       },
       error: err => {
       }
     });
-    this._router.navigateByUrl('/list')
     sessionStorage.removeItem('singlePetCode')
   }
 

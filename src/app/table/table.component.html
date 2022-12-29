@@ -1,5 +1,3 @@
-<!--tabel peab olema sorteeritav-->
-
 <div class="container">
   <div class="row">
     <div class="col">
@@ -10,7 +8,8 @@
   </div>
   <div class="row mt-5">
     <div>
-      <table class="table table-hover" >
+      <table class="table table-hover">
+        <caption hidden>Pet list</caption>
         <thead>
         <tr>
           <th scope="col" class="sort" (click)="order('id')"># <i [class]="orderDirection('id')"></i></th>
@@ -18,7 +17,8 @@
           <th scope="col" class="sort" (click)="order('code')">Code <i [class]="orderDirection('code')"></i></th>
           <th scope="col" class="sort" (click)="order('type')">Type <i [class]="orderDirection('type')"></i></th>
           <th scope="col" class="sort" (click)="order('color')">Fur color<i [class]="orderDirection('color')"></i></th>
-          <th scope="col" class="sort" (click)="order('country')">Country<i [class]="orderDirection('country')"></i></th>
+          <th scope="col" class="sort" (click)="order('country')">Country<i [class]="orderDirection('country')"></i>
+          </th>
           <th scope="col"></th>
         </tr>
         </thead>

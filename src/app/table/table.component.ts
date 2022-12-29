@@ -44,21 +44,16 @@ export class TableComponent implements OnInit {
     if (this.sortField !== fieldName) {
       this.sort = 1;
     }
-
     if (this.sortField === fieldName) {
-
       if (this.sort === 1) {
         this.sort = -1;
-      }
-       else if (this.sort === -1) {
+      } else if (this.sort === -1) {
         this.sort = 1;
       }
     }
-
     this.sortField = fieldName;
 
     this.userPets = this.userPets.sort((a: any, b: any) => {
-
       if (a[this.sortField] < b[this.sortField]) {
         return -1 * this.sort;
       }

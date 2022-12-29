@@ -30,9 +30,10 @@ These users have empty lists.
 
 ### Features
 
-* User registration with input field validation
-* User login
-* User can add pets
+* User registration with input fields validation
+* User login - username input is not case-sensitive
+* User can add pets - all fields are mandatory!
 * User can edit pets (every property except database Pet code)
 * User can delete pets
+* Pet code is unique and it applies globally. 
 

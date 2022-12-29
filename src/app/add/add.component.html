@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="mt-0">
     <div class="row">
@@ -13,13 +12,15 @@
           <div class="mb-3">
             <label for="name">Name</label>
             <div class="input-group">
-              <input [(ngModel)]="petName" name="first" type="text" class="form-control" id="name" required="true" placeholder="Name">
+              <input [(ngModel)]="petName" name="first" type="text" class="form-control" id="name" required="true"
+                     placeholder="Name">
             </div>
           </div>
           <div class="mb-3">
             <label for="code">Code, minimum length is 5 digits</label>
             <div class="input-group">
-              <input [(ngModel)]="petCode" name="second" type="number" class="form-control" id="code" required="true" placeholder="Code">
+              <input [(ngModel)]="petCode" name="second" type="number" class="form-control" id="code" required="true"
+                     placeholder="Code">
             </div>
           </div>
           <div *ngIf="errorResponse.errorCode === codeExistsError" class="alert alert-danger mt-3" role="alert">
@@ -45,7 +46,8 @@
           </div>
           <div class="mb-3">
             <label for="countries">Country of origin</label>
-            <select [(ngModel)]="petCountry" name="third" class="form-select d-block w-100" id="countries" required="true">
+            <select [(ngModel)]="petCountry" name="third" class="form-select d-block w-100" id="countries"
+                    required="true">
               <option *ngFor="let value of countryValues" [value]="value.id">{{value.country}}</option>
             </select>
           </div>
