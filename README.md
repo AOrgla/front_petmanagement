@@ -1,4 +1,4 @@
-# FrontPetmanagement
+# Welcome to Pet Management System
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 Bootstrap CSS is used for styling.
@@ -19,6 +19,7 @@ To start, use the following credentials:
 * password: 123
 
 John has three pets in his list.
+
 Other users are:
 * username: Mihkel
 * password: 123
@@ -33,7 +34,7 @@ These users have empty lists.
 * User registration with input fields validation
 * User login - username input is not case-sensitive
 * User can add pets - all fields are mandatory!
-* User can edit pets (every property except database Pet code)
+* User can edit pets (every property except Pet code)
 * User can delete pets
 * Pet code is unique and it applies globally. 
 
