@@ -31,6 +31,9 @@ export class RegisterComponent {
   }
 
   registerUser() {
+    this.registerCheck = false;
+    this.passwordCheck = false;
+    this.emailCheck = false;
     if (this.password === this.passwordConfirmation &&
       this.email.includes('@')) {
       this.http.post("http://localhost:8080/register", {

@@ -19,11 +19,17 @@ export class LoginComponent {
   }
   username: string = ""
   password: string = ""
+  inputCheck: boolean = false;
 
   constructor(private http: HttpClient, private _router: Router) {
   }
 
   getLoginInfo(username: string, password: string) {
+    this.inputCheck = false;
+    if (this.username.length === 0 || this.password.length === 0) {
+      this.inputCheck = true;
+      return;
+    }
     this.http.post("http://localhost:8080/login",
       {password: password, username: username})
       .subscribe({
